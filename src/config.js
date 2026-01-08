@@ -6,21 +6,21 @@ export const APPS_CONFIG = [
   {
     id: 'ia-risk-analysis',
     name: 'Análisis imagen IA Factores de Riesgo',
-    url: 'http://localhost:5173/',
+    url: 'https://productos-quimicos-j8mw-kp7228yja-rgarciarojo76-ctrls-projects.vercel.app/',
     image: riskImg,
     active: true,
   },
   {
     id: 'manual-instructions',
     name: 'Análisis manual de instrucciones equipos de trabajo',
-    url: 'http://localhost:5174/',
+    url: 'https://analisis-de-riesgos-5s6f8q2o4-rgarciarojo76-ctrls-projects.vercel.app/',
     image: manualImg,
     active: true,
   },
   {
     id: 'chemical-products',
     name: 'Análisis productos químicos cancerígenos',
-    url: 'http://localhost:5175/',
+    url: 'https://productos-quimicos-14lr-pcs5r6wrf-rgarciarojo76-ctrls-projects.vercel.app/',
     image: chemicalImg,
     active: true,
   }
