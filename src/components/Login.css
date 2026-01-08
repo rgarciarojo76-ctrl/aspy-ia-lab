@@ -1,0 +1,214 @@
+.login-wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: var(--color-white);
+}
+
+/* LEFT SIDE - VISUAL */
+.login-visual-side {
+    flex: 6;
+    /* 60% width */
+    position: relative;
+    background-color: var(--color-background);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.login-visual-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 94, 184, 0.9), rgba(0, 46, 91, 0.85));
+    /* ASPY Blue overlay */
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    /* Text at bottom left */
+    padding: 80px;
+}
+
+.visual-content {
+    color: var(--color-white);
+    max-width: 600px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.visual-content h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--color-white);
+    line-height: 1.1;
+}
+
+.visual-content p {
+    font-size: 18px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* RIGHT SIDE - FORM */
+.login-form-side {
+    flex: 4;
+    /* 40% width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: var(--color-white);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    z-index: 3;
+}
+
+.login-form-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.login-logo {
+    height: 48px;
+    margin-bottom: 24px;
+}
+
+.login-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    color: var(--color-text-light);
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #f8f9fa;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--color-text-main);
+    transition: all 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(0, 153, 204, 0.1);
+}
+
+.form-input::placeholder {
+    color: #ccc;
+}
+
+.login-button {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 153, 204, 0.2);
+}
+
+.login-button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 153, 204, 0.3);
+}
+
+.error-message {
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #fecaca;
+}
+
+.login-footer {
+    margin-top: 40px;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    padding-top: 24px;
+}
+
+.login-footer p {
+    font-size: 12px;
+    color: var(--color-text-light);
+    margin-bottom: 4px;
+}
+
+.version-tag {
+    opacity: 0.6;
+    font-family: monospace;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .login-visual-side {
+        display: none;
+    }
+
+    .login-form-side {
+        flex: 1;
+    }
+}

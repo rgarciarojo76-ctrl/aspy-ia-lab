@@ -1,0 +1,61 @@
+:root {
+  /* ASPY Corporate Colors - Refined from screenshot */
+  --color-primary: #0099cc;
+  /* Lighter Cyan/Blue as seen in logo/title */
+  --color-primary-dark: #007bb5;
+  --color-text-main: #4a4a4a;
+  /* Softer gray/black */
+  --color-text-light: #888888;
+  --color-background: #f8f9fa;
+  /* Very light gray/white background */
+  --color-white: #ffffff;
+  --color-border: #e6e6e6;
+  --color-warning: #f59e0b;
+  /* Orange for the warning text */
+  --color-badge-bg: #e0f2fe;
+  /* Light blue for "Estado" pill */
+  --color-badge-text: #0288d1;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
