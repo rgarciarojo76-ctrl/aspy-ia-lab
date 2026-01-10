@@ -13,7 +13,7 @@ export const APPS_CONFIG = [
   {
     id: 'manual-instructions',
     name: 'Análisis manual de instrucciones equipos de trabajo',
-    url: 'https://risk-analysis-six.vercel.app/',
+    url: 'https://aspy-manuals.vercel.app/',
     image: manualImg,
     active: true,
   },
