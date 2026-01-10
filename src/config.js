@@ -6,7 +6,7 @@ export const APPS_CONFIG = [
   {
     id: 'ia-risk-analysis',
     name: 'Análisis imagen IA Factores de Riesgo',
-    url: 'https://chemical-products-j8mw.vercel.app/',
+    url: 'https://aspy-risk-analysis.vercel.app/',
     image: riskImg,
     active: true,
   },
