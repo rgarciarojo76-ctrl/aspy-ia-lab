@@ -11,7 +11,12 @@ const Login = ({ onLogin }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (username === AUTH_CREDENTIALS.username && password === AUTH_CREDENTIALS.password) {
+
+        const isValidUser = AUTH_CREDENTIALS.some(
+            cred => cred.username === username && cred.password === password
+        );
+
+        if (isValidUser) {
             onLogin();
         } else {
             setError('Credenciales incorrectas. Acceso denegado.');
