@@ -26,13 +26,5 @@ export const APPS_CONFIG = [
   }
 ];
 
-export const AUTH_CREDENTIALS = [
-  {
-    username: '4667',
-    password: 'Rg248582'
-  },
-  {
-    username: 'ridouan.elbachiri@qubiq.es',
-    password: 'Aspy@2026'
-  }
-];
+// Credentials are now handled server-side via Vercel Environment Variables.
+export const AUTH_CREDENTIALS = [];

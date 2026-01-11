@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { AUTH_CREDENTIALS } from '../config';
 import aspyLogo from '../assets/aspy-logo.png';
 import riskImg from '../assets/risk-analysis.png'; // Using this as the hero image
 import './Login.css';
@@ -9,17 +8,27 @@ const Login = ({ onLogin }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
 
-        const isValidUser = AUTH_CREDENTIALS.some(
-            cred => cred.username === username && cred.password === password
-        );
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
 
-        if (isValidUser) {
-            onLogin();
-        } else {
-            setError('Credenciales incorrectas. Acceso denegado.');
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                onLogin();
+            } else {
+                setError('Credenciales incorrectas. Acceso denegado.');
+            }
+        } catch (err) {
+            console.error(err);
+            setError('Error de conexión con el servidor de seguridad.');
         }
     };
 
