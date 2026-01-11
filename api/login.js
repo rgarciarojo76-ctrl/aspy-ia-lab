@@ -27,17 +27,22 @@ export default function handler(req, res) {
         let authorizedUsers = [];
 
         if (process.env.AUTH_USERS) {
-            authorizedUsers = JSON.parse(process.env.AUTH_USERS);
-        } else {
-            // Fallback for immediate backward compatibility if env is missing during transition
-            // OR to simple variables if the user prefers simple setup.
-            // Let's try to support simple variables too for the first admin user.
-            if (process.env.ADMIN_USER && process.env.ADMIN_PASS) {
-                authorizedUsers.push({
-                    username: process.env.ADMIN_USER,
-                    password: process.env.ADMIN_PASS
-                });
+            try {
+                const parsed = JSON.parse(process.env.AUTH_USERS);
+                if (Array.isArray(parsed)) {
+                    authorizedUsers = [...parsed];
+                }
+            } catch (e) {
+                console.error("Failed to parse AUTH_USERS", e);
             }
+        }
+
+        // Always check for Admin User too (Merge both sources)
+        if (process.env.ADMIN_USER && process.env.ADMIN_PASS) {
+            authorizedUsers.push({
+                username: process.env.ADMIN_USER,
+                password: process.env.ADMIN_PASS
+            });
         }
 
         const isValid = authorizedUsers.some(
