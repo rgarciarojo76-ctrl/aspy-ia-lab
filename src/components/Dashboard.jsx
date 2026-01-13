@@ -6,6 +6,32 @@ import aspyLogo from '../assets/aspy-logo.png';
 const Dashboard = ({ onLogout }) => {
     const activeApps = APPS_CONFIG.filter(app => app.active);
 
+    const handleAppLaunch = async (e, appUrl) => {
+        e.preventDefault();
+
+        try {
+            // 1. Get a fresh signed token from our internal API
+            const response = await fetch('/api/generate-token');
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to generate access token');
+            }
+
+            // 2. Append token to the destination URL
+            const url = new URL(appUrl);
+            url.searchParams.set('t', data.timestamp);
+            url.searchParams.set('h', data.signature);
+
+            // 3. Open the secure link
+            window.open(url.toString(), '_blank', 'noopener,noreferrer');
+
+        } catch (error) {
+            console.error('Security Handshake Failed:', error);
+            alert('Error de seguridad: No se pudo generar el pase de acceso. Contacte con el administrador.');
+        }
+    };
+
     return (
         <div className="dashboard-layout">
             <header className="dashboard-header">
@@ -55,11 +81,11 @@ const Dashboard = ({ onLogout }) => {
                                     <h3 className="app-card-title">{app.name}</h3>
                                 </div>
                             </div>
+
                             <div className="app-card-actions">
                                 <a
-                                    href={app.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    href="#"
+                                    onClick={(e) => handleAppLaunch(e, app.url)}
                                     className="app-launch-button"
                                 >
                                     Acceder a la aplicación
@@ -74,14 +100,14 @@ const Dashboard = ({ onLogout }) => {
                         </div>
                     )}
                 </div>
-            </main>
+            </main >
 
             <footer className="dashboard-footer">
                 <div className="container">
                     <p>ASPY IA LAB – Uso interno restringido</p>
                 </div>
             </footer>
-        </div>
+        </div >
     );
 };
 
