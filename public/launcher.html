@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPY IA LAB - Conectando</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #334155;
+            text-align: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #cbd5e1;
+            border-top: 4px solid #0284c7;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        h2 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .error-box {
+            display: none;
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 90%;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loading-ui">
+        <div class="spinner"></div>
+        <h2>Generando pase de seguridad... 🔐</h2>
+        <p>Verificando credenciales y redirigiendo.</p>
+    </div>
+
+    <div id="error-ui" class="error-box">
+        <h3>⛔ Error de Conexión</h3>
+        <p id="error-msg">No se pudo conectar con el servidor.</p>
+        <button onclick="window.close()"
+            style="margin-top:10px; padding: 8px 16px; background: #dc2626; color: white; border: none; border-radius: 4px; cursor: pointer;">Cerrar</button>
+    </div>
+
+    <script>
+        async function init() {
+            try {
+                // 1. Extract target URL from query params
+                const params = new URLSearchParams(window.location.search);
+                const targetUrl = params.get('url');
+
+                if (!targetUrl) {
+                    throw new Error("No se especificó la aplicación de destino.");
+                }
+
+                // 2. Request Token
+                const response = await fetch('/api/generate-token');
+                if (!response.ok) throw new Error("Fallo al generar el token (API Error).");
+                const data = await response.json();
+
+                if (!data.timestamp || !data.signature) {
+                    throw new Error("Respuesta del servidor inválida.");
+                }
+
+                // 3. Construct Secure URL
+                let finalUrl = new URL(targetUrl);
+                finalUrl.searchParams.set('t', data.timestamp);
+                finalUrl.searchParams.set('h', data.signature);
+
+                // 4. Redirect
+                console.log("Redirigiendo a:", finalUrl.toString());
+                window.location.replace(finalUrl.toString());
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('loading-ui').style.display = 'none';
+                document.getElementById('error-ui').style.display = 'block';
+                document.getElementById('error-msg').innerText = error.message || "Error desconocido.";
+            }
+        }
+
+        // Run immediately
+        init();
+    </script>
+</body>
+
+</html>

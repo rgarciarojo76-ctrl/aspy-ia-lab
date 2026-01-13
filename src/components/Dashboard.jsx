@@ -6,53 +6,16 @@ import aspyLogo from '../assets/aspy-logo.png';
 const Dashboard = ({ onLogout }) => {
     const activeApps = APPS_CONFIG.filter(app => app.active);
 
-    const handleAppLaunch = async (e, appUrl) => {
+    const handleAppLaunch = (e, appUrl) => {
         e.preventDefault();
 
-        // 1. Open window immediately (Synchronous) to avoid Popup Blockers on Mobile
-        // We open a blank tab first, then redirect it.
-        const newWindow = window.open('', '_blank', 'noopener,noreferrer');
+        // New Mobile-Robust Strategy: 
+        // Direct the user effectively to an internal "launcher" page.
+        // This page loads immediately (synchronously), preventing popup blockers.
+        // It then handles the async token logic inside itself.
 
-        // Optional: Show a loading message in the new tab
-        if (newWindow) {
-            newWindow.document.write(`
-                <html>
-                    <head><title>Conectando...</title></head>
-                    <body style="font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #f8fafc; color: #334155;">
-                        <h2 style="margin-bottom: 10px;">Generando pase de seguridad... 🔐</h2>
-                        <p>Por favor espere un segundo.</p>
-                    </body>
-                </html>
-            `);
-        }
-
-        try {
-            // 2. Get a fresh signed token from our internal API
-            const response = await fetch('/api/generate-token');
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error || 'Failed to generate access token');
-            }
-
-            // 3. Append token to the destination URL
-            const url = new URL(appUrl);
-            url.searchParams.set('t', data.timestamp);
-            url.searchParams.set('h', data.signature);
-
-            // 4. Redirect the pre-opened window
-            if (newWindow) {
-                newWindow.location.href = url.toString();
-            } else {
-                // Fallback for extreme cases
-                window.location.href = url.toString();
-            }
-
-        } catch (error) {
-            console.error('Security Handshake Failed:', error);
-            if (newWindow) newWindow.close(); // Close the blank tab if failed
-            alert('Error de seguridad: No se pudo generar el pase de acceso. Contacte con el administrador.');
-        }
+        const launcherUrl = `/launcher.html?url=${encodeURIComponent(appUrl)}`;
+        window.open(launcherUrl, '_blank', 'noopener,noreferrer');
     };
 
     return (
