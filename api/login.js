@@ -1,8 +1,35 @@
 /* global process */
+// Simple in-memory store for rate limiting (per lambda instance)
+const rateLimitMap = new Map();
+
 export default function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
     }
+
+    // --- ENS Security: Rate Limiting [op.acc.6] ---
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
+    const now = Date.now();
+    const WINDOW_MS = 60 * 1000; // 1 minute
+    const MAX_ATTEMPTS = 5;
+
+    const requestLog = rateLimitMap.get(ip) || { count: 0, startTime: now };
+
+    // Reset window if passed
+    if (now - requestLog.startTime > WINDOW_MS) {
+        requestLog.count = 0;
+        requestLog.startTime = now;
+    }
+
+    if (requestLog.count >= MAX_ATTEMPTS) {
+        console.warn(`[Security] Brute force attempt blocked from IP: ${ip}`);
+        return res.status(429).json({ error: 'Too many attempts. Please try again later.' });
+    }
+
+    // Increment count
+    requestLog.count++;
+    rateLimitMap.set(ip, requestLog);
+    // ----------------------------------------------
 
     const { username, password } = req.body;
 
