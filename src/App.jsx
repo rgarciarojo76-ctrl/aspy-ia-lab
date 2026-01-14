@@ -3,11 +3,15 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import './App.css';
 
-function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+// 8 hours in milliseconds
+const IDLE_TIMEOUT = 8 * 60 * 60 * 1000;
 
-  // 8 hours in milliseconds
-  const IDLE_TIMEOUT = 8 * 60 * 60 * 1000;
+function App() {
+  // Lazy initialization to avoid effect setState
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return sessionStorage.getItem('aspy_lab_session') === 'active';
+  });
+
   const logoutTimerRef = React.useRef(null);
 
   const handleLogout = () => {
@@ -18,26 +22,26 @@ function App() {
     }
   };
 
-  const resetTimer = () => {
+  const resetTimer = React.useCallback(() => {
     if (logoutTimerRef.current) {
       clearTimeout(logoutTimerRef.current);
     }
     logoutTimerRef.current = setTimeout(handleLogout, IDLE_TIMEOUT);
-  };
+  }, []);
 
   useEffect(() => {
-    // Check session storage for existing session
-    const session = sessionStorage.getItem('aspy_lab_session');
-    if (session === 'active') {
-      setIsAuthenticated(true);
-      resetTimer(); // Start timer on load if already logged in
+    // If authenticated on mount, start timer
+    if (isAuthenticated) {
+      resetTimer();
     }
 
     // Events that reset the timer
     const events = ['mousemove', 'keydown', 'click', 'scroll'];
 
     const handleActivity = () => {
-      // Only reset if user is authenticated
+      // We can check the ref or just reset. Since we are in an effect for general activity, 
+      // let's check session explicitly or just rely on the component state if we included it in deps.
+      // Better: check storage directly to avoid stale closures if we don't want to rebind listeners constantly.
       if (sessionStorage.getItem('aspy_lab_session') === 'active') {
         resetTimer();
       }
@@ -57,7 +61,7 @@ function App() {
         clearTimeout(logoutTimerRef.current);
       }
     };
-  }, []);
+  }, [resetTimer]);
 
   const handleLogin = () => {
     sessionStorage.setItem('aspy_lab_session', 'active');
