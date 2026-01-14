@@ -1,0 +1,9 @@
+.dashboard-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-lg) 0;
+    color: var(--color-text-light);
+    font-size: 12px;
+    text-align: center;
+    background-color: var(--color-white);
+}

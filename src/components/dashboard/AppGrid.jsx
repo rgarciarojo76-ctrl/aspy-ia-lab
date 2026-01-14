@@ -1,5 +1,5 @@
-import React from 'react';
 import { APPS_CONFIG } from '../../config';
+import './AppGrid.css';
 
 const AppGrid = () => {
     const activeApps = APPS_CONFIG.filter(app => app.active);

@@ -1,5 +1,5 @@
-import React from 'react';
 import aspyLogo from '../../assets/aspy-logo.png';
+import './DashboardHeader.css';
 
 const DashboardHeader = ({ onLogout }) => {
     return (

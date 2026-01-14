@@ -1,4 +1,5 @@
 import React from 'react';
+import './DashboardFooter.css';
 
 const DashboardFooter = () => {
     return (
