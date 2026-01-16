@@ -17,5 +17,20 @@ Sigue estos pasos para renombrarlo a algo como `direccion-tecnica-ia-lab.vercel.
     *   Haz clic en **Edit** junto al dominio actual.
     *   Escribe el nuevo nombre (ej: `direccion-tecnica-ia-lab.vercel.app`) y guarda.
 
+## 🔄 Renombrado de las Apps Externas
+Para que los enlaces del Portal funcionen, debes renombrar las otras 3 apps en Vercel siguiendo el mismo proceso:
+
+1.  **Risk Analysis**:
+    *   Nuevo Nombre: `direccion-tecnica-risk-analysis`
+    *   Nuevo Dominio: `direccion-tecnica-risk-analysis.vercel.app`
+
+2.  **Manual Instructions**:
+    *   Nuevo Nombre: `direccion-tecnica-manuals`
+    *   Nuevo Dominio: `direccion-tecnica-manuals.vercel.app`
+
+3.  **Chemical Products**:
+    *   Nuevo Nombre: `direccion-tecnica-chemicals`
+    *   Nuevo Dominio: `direccion-tecnica-chemicals.vercel.app`
+
 ## Nota Importante
 Al cambiar la URL, recuerda actualizar el archivo `src/config.js` en este código si alguna otra app apunta hacia aquí, para que los enlaces no se rompan.
