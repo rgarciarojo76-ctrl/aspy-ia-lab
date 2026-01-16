@@ -42,7 +42,7 @@ const Login = ({ onLogin }) => {
                     <div className="login-visual-overlay">
                         <div className="visual-content">
                             <h2>Innovación y Seguridad Prevención 4.0</h2>
-                            <p>Laboratorio interno de experimentación con Inteligencia Artificial aplicada a PRL.</p>
+                            <p>Laboratorio de pruebas de concepto y experimentación con Inteligencia Artificial aplicada a PRL</p>
                         </div>
                     </div>
                 </div>
