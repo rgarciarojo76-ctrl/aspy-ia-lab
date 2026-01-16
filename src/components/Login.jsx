@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
 import logo from '../assets/logo-direccion-tecnica.jpg';
-import riskImg from '../assets/risk-analysis.png'; // Using this as the hero image
+import riskImg from '../assets/hero-ai-safety.png'; // Updated Premium Hero Image
 import './Login.css';
 
 const Login = ({ onLogin }) => {
