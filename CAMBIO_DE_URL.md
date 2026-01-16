@@ -23,7 +23,14 @@ Para que los enlaces del Portal funcionen, debes renombrar las otras 3 apps en V
 ## 📋 Tabla de Copiar y Pegar (Evita Errores)
 Para cada aplicación, hay dos campos que debes cambiar en Vercel. Son diferentes:
 
-| Aplicación (Original) | Campo 1: Project Name (Sin .vercel.app) | Campo 2: Domain Name (CON .vercel.app) |
+### 1. ESTA APP (Portal Principal)
+| Campo | Valor a Copiar |
+| :--- | :--- |
+| **Project Name** | `direccion-tecnica-ia-lab` |
+| **Domain Name** | `direccion-tecnica-ia-lab.vercel.app` |
+
+### 2. APPS EXTERNAS
+| Aplicación (Original) | Project Name (Sin .vercel.app) | Domain Name (CON .vercel.app) |
 | :--- | :--- | :--- |
 | **Risk Analysis** | `direccion-tecnica-risk-analysis` | `direccion-tecnica-risk-analysis.vercel.app` |
 | **Manual Instructions** | `direccion-tecnica-manuals` | `direccion-tecnica-manuals.vercel.app` |

@@ -30,5 +30,10 @@ Asegúrate de copiar `logo-square.jpg` a la carpeta `public/`.
 1.  **Header**: Busca donde se importa el logo antiguo (ej: `aspy-logo.png`) y cámbialo para usar `logo-direccion-tecnica.jpg`.
 2.  **Login**: Haz lo mismo en la pantalla de acceso.
 
-## 5. (Opcional) Cambio de URL
-Si el usuario quiere cambiar la URL de Vercel (quitar "aspy"), instrúyele para que renombre el proyecto en Vercel Settings a algo como `direccion-tecnica-[nombre-app]`.
+3.  **Vínculos al Portal**: Busca cualquier enlace que apunte a `aspy-ia-lab.vercel.app` (especialmente en el componente `Gatekeeper` o botones "Volver") y actualízalo a:
+    *   `https://direccion-tecnica-ia-lab.vercel.app`
+
+## 5. (Opcional) Cambio de URL en Vercel
+Si el usuario quiere cambiar la URL de Vercel (quitar "aspy"), instrúyele para que renombre el proyecto en Vercel Settings:
+*   Project Name: `direccion-tecnica-[nombre-app]`
+*   Domain: `direccion-tecnica-[nombre-app].vercel.app`
