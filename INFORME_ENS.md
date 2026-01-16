@@ -1,6 +1,6 @@
 # 🛡️ Informe de Seguridad ENS (Esquema Nacional de Seguridad)
 
-**Proyecto**: ASPY IA LAB Portal
+**Proyecto**: DIRECCIÓN TÉCNICA IA LAB Portal
 **Fecha**: 2026-01-14
 **Estado**: ✅ CUMPLIMIENTO ALTO
 

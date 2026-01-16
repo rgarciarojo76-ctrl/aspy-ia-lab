@@ -1,4 +1,4 @@
-import aspyLogo from '../../assets/aspy-logo.png';
+import logo from '../../assets/logo-direccion-tecnica.jpg';
 import './DashboardHeader.css';
 
 const DashboardHeader = ({ onLogout }) => {
@@ -7,11 +7,11 @@ const DashboardHeader = ({ onLogout }) => {
             <div className="header-content container">
                 <div className="header-left">
                     <div className="aspy-logo-container">
-                        <img src={aspyLogo} alt="ASPY Logo" className="aspy-logo-img" />
+                        <img src={logo} alt="Dirección Técnica Logo" className="aspy-logo-img" />
                     </div>
                     <div className="header-divider"></div>
                     <div className="header-title-block">
-                        <h1 className="header-title">ASPY IA LAB</h1>
+                        <h1 className="header-title">DIRECCIÓN TÉCNICA IA LAB</h1>
                         <p className="header-subtitle">Aplicación: Portal de Acceso - Riesgos PRL</p>
                     </div>
                 </div>

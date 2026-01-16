@@ -1,4 +1,4 @@
-# 👥 Guía de Colaboración - ASPY IA LAB
+# 👥 Guía de Colaboración - DIRECCIÓN TÉCNICA IA LAB
 
 Esta guía explica cómo configurar el entorno de trabajo para que múltiples desarrolladores puedan trabajar en el proyecto simultáneamente.
 
