@@ -2,6 +2,8 @@ import riskImg from './assets/risk-analysis.png';
 import manualImg from './assets/manual-instructions-v2.png';
 import chemicalImg from './assets/chemical-analysis.png';
 
+export const PORTAL_URL = 'https://direccion-tecnica-ia-lab.vercel.app/';
+
 export const APPS_CONFIG = [
   {
     id: 'ia-risk-analysis',

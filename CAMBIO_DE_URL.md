@@ -11,7 +11,7 @@ Sigue estos pasos para renombrarlo a algo como `direccion-tecnica-ia-lab.vercel.
 3.  Ve a la pestaña **Settings** (Configuración) en la parte superior.
 4.  En la sección **General**, busca "Project Name".
     *   Cámbialo a: `direccion-tecnica-ia-lab`.
-    *   Esto cambiará la URL por defecto en futuros despliegues.
+    *   **ESTADO: HECHO** (Ya actualizado en el código).
 5.  Para cambiar el dominio activo YA:
     *   Ve a **Domains** en el menú lateral izquierdo.
     *   Haz clic en **Edit** junto al dominio actual.
