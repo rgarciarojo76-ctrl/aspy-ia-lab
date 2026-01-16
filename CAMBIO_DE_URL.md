@@ -20,17 +20,20 @@ Sigue estos pasos para renombrarlo a algo como `direccion-tecnica-ia-lab.vercel.
 ## 🔄 Renombrado de las Apps Externas
 Para que los enlaces del Portal funcionen, debes renombrar las otras 3 apps en Vercel siguiendo el mismo proceso:
 
-1.  **Risk Analysis**:
-    *   Nuevo Nombre: `direccion-tecnica-risk-analysis`
-    *   Nuevo Dominio: `direccion-tecnica-risk-analysis.vercel.app`
+## 📋 Tabla de Copiar y Pegar (Evita Errores)
+Para cada aplicación, hay dos campos que debes cambiar en Vercel. Son diferentes:
 
-2.  **Manual Instructions**:
-    *   Nuevo Nombre: `direccion-tecnica-manuals`
-    *   Nuevo Dominio: `direccion-tecnica-manuals.vercel.app`
+| Aplicación (Original) | Campo 1: Project Name (Sin .vercel.app) | Campo 2: Domain Name (CON .vercel.app) |
+| :--- | :--- | :--- |
+| **Risk Analysis** | `direccion-tecnica-risk-analysis` | `direccion-tecnica-risk-analysis.vercel.app` |
+| **Manual Instructions** | `direccion-tecnica-manuals` | `direccion-tecnica-manuals.vercel.app` |
+| **Chemical Products** | `direccion-tecnica-chemicals` | `direccion-tecnica-chemicals.vercel.app` |
 
-3.  **Chemical Products**:
-    *   Nuevo Nombre: `direccion-tecnica-chemicals`
-    *   Nuevo Dominio: `direccion-tecnica-chemicals.vercel.app`
+### Pasos Recordatorios:
+1.  **Project Name**: Configuración > General > "Project Name".
+2.  **Domain**: Configuración > Domains > Botón "Edit" > Escribir el dominio COMPLETO.
 
-## Nota Importante
-Al cambiar la URL, recuerda actualizar el archivo `src/config.js` en este código si alguna otra app apunta hacia aquí, para que los enlaces no se rompan.
+## 💡 Recomendación: Redirección
+Como se ve en tu captura, Vercel ha creado automáticamente una redirección (307) del dominio antiguo al nuevo.
+**¡NO LO BORRES TODAVÍA!**
+Déjalo así un tiempo. Esto asegura que si alguien entra en el enlace antiguo (`aspy-...`), será redirigido automáticamente al nuevo (`direccion-tecnica-...`). Puedes borrarlo en el futuro cuando estés seguro de que nadie usa la dirección vieja.
