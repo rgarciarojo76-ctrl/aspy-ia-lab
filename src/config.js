@@ -22,7 +22,7 @@ export const APPS_CONFIG = [
   {
     id: 'chemical-products',
     name: 'Análisis productos químicos cancerígenos',
-    url: 'https://direccion-tecnica-chemicals.vercel.app/',
+    url: 'https://direccion-tecnica-chemicals.vercel.app/?k=DireccionTecnica2025',
     image: chemicalImg,
     active: true,
   }
