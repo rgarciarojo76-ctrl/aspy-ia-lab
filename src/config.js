@@ -2,6 +2,8 @@ import riskImg from './assets/risk-analysis.png';
 import manualImg from './assets/manual-instructions-v2.png';
 import chemicalImg from './assets/chemical-analysis.png';
 
+import fdsImg from './assets/fds-analysis-bg.png';
+
 export const PORTAL_URL = 'https://direccion-tecnica-ia-lab.vercel.app/';
 
 export const APPS_CONFIG = [
@@ -24,6 +26,13 @@ export const APPS_CONFIG = [
     name: 'Análisis productos químicos cancerígenos',
     url: 'https://direccion-tecnica-chemicals.vercel.app/',
     image: chemicalImg,
+    active: true,
+  },
+  {
+    id: 'fds-analyzer',
+    name: 'Análisis ficha de datos de seguridad de producto químico',
+    url: 'https://direccion-tecnica-fds-analyzer.vercel.app/',
+    image: fdsImg,
     active: true,
   }
 ];

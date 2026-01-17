@@ -36,31 +36,7 @@ const AppGrid = () => {
                 </div>
             ))}
 
-            {/* --- INICIO TARJETA FDS ANALYZER --- */}
-            <a
-                href="https://direccion-tecnica-fds-analyzer.vercel.app/"
-                onClick={(e) => handleAppLaunch(e, "https://direccion-tecnica-fds-analyzer.vercel.app/")}
-                className="fds-card"
-            >
-                <div className="fds-card-header">
-                    <div className="fds-icon-wrapper">
-                        {/* Icono Matraz/Química */}
-                        <FlaskConical className="fds-icon" strokeWidth={1.5} />
-                    </div>
-                    <span className="fds-version-badge">
-                        v1.0
-                    </span>
-                </div>
 
-                <h3 className="fds-title">
-                    FDS Analyzer
-                </h3>
-
-                <p className="fds-description">
-                    Extracción automática de datos de fichas de seguridad química (12 puntos) mediante IA.
-                </p>
-            </a>
-            {/* --- FIN TARJETA FDS ANALYZER --- */}
 
             {activeApps.length === 0 && (
                 <div className="no-apps-message">
