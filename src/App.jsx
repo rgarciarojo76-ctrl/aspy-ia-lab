@@ -14,20 +14,20 @@ function App() {
 
   const logoutTimerRef = React.useRef(null);
 
-  const handleLogout = () => {
+  const handleLogout = React.useCallback(() => {
     sessionStorage.removeItem('aspy_lab_session');
     setIsAuthenticated(false);
     if (logoutTimerRef.current) {
       clearTimeout(logoutTimerRef.current);
     }
-  };
+  }, []);
 
   const resetTimer = React.useCallback(() => {
     if (logoutTimerRef.current) {
       clearTimeout(logoutTimerRef.current);
     }
     logoutTimerRef.current = setTimeout(handleLogout, IDLE_TIMEOUT);
-  }, []);
+  }, [handleLogout]);
 
   useEffect(() => {
     // If authenticated on mount, start timer
@@ -61,7 +61,7 @@ function App() {
         clearTimeout(logoutTimerRef.current);
       }
     };
-  }, [resetTimer]);
+  }, [isAuthenticated, resetTimer]);
 
   const handleLogin = () => {
     sessionStorage.setItem('aspy_lab_session', 'active');

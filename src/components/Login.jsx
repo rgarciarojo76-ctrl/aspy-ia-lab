@@ -26,7 +26,7 @@ const Login = ({ onLogin }) => {
             } else {
                 setError('Credenciales incorrectas');
             }
-        } catch (err) {
+        } catch {
             setError('Error de conexión');
         } finally {
             setIsLoading(false);
