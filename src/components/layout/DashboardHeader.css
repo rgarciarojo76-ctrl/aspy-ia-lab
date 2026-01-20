@@ -135,3 +135,64 @@
         font-size: 9px;
     }
 }
+
+/* --- Warning Pill Badge --- */
+.status-disclaimer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    
+    /* Premium visual style */
+    background: linear-gradient(to right, #fffbeb, #fefce8); /* Degrado sutil */
+    border: 1px solid #fde68a;
+    padding: 0.4rem 1rem;
+    border-radius: 99px; /* Pill shape total */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    
+    /* Layout */
+    max-width: fit-content;
+    margin-top: 0;
+}
+.disclaimer-icon {
+    color: #eab308;
+    flex-shrink: 0;
+}
+.disclaimer-content {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+.disclaimer-title {
+    font-weight: 700;
+    color: #b45309; /* Amber 700 */
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+.disclaimer-body {
+    font-size: 0.75rem;
+    color: #92400e; /* Amber 800 */
+    font-weight: 500;
+}
+
+.status-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* --- Responsividad Mobile --- */
+@media (max-width: 900px) {
+    .status-disclaimer {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 8px; /* Opcional: reducir radio en móvil si ocupa todo el ancho */
+        justify-content: center; /* Opcional: centrar en móvil */
+    }
+    .status-section {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

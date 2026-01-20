@@ -1,4 +1,5 @@
 import logo from '../../assets/logo-direccion-tecnica.jpg';
+import { AlertTriangle } from 'lucide-react';
 import './DashboardHeader.css';
 
 const DashboardHeader = ({ onLogout }) => {
@@ -17,9 +18,17 @@ const DashboardHeader = ({ onLogout }) => {
                 </div>
 
                 <div className="header-center">
-                    <div className="status-badge">Estado: Piloto interno</div>
-                    <div className="warning-text">
-                        AVISO: Apoyo técnico (no sustitutivo del criterio profesional). La información debe ser validada.
+                    <div className="status-section">
+                         <div className="status-badge">Estado: Piloto interno</div>
+                         <div className="status-disclaimer">
+                            <AlertTriangle size={18} className="disclaimer-icon" />
+                            <div className="disclaimer-content">
+                                <span className="disclaimer-title">AVISO:</span>
+                                <span className="disclaimer-body">
+                                    Apoyo técnico (no sustitutivo del criterio profesional). La información debe ser validada.
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
