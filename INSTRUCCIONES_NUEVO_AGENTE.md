@@ -62,3 +62,67 @@ Una vez tengas la URL de producción, genera el siguiente JSON y pídele al usua
 }
 ```
 *Nota: Genera también una imagen de 600x400px para la tarjeta del dashboard usando tu herramienta de generación de imágenes y guárdala.*
+
+## FASE 5: Estándar de Diseño (Obligatorio)
+
+Para mantener la coherencia con el resto del Portal (ver capturas proporcionadas por el usuario), tu aplicación debe seguir **estrictamente** este Sistema de Diseño.
+
+### A. Paleta de Colores Corporativa (CSS)
+Copia estas variables en tu archivo CSS global (`index.css` o `App.css`):
+
+```css
+:root {
+  /* Colors */
+  --color-primary: #0099cc;       /* Cyan corporativo */
+  --color-primary-dark: #007bb5;  /* Hover/Active states */
+  --color-text-main: #4a4a4a;     /* Texto principal (Gris oscuro, no negro) */
+  --color-text-light: #888888;    /* Texto secundario */
+  --color-background: #f8f9fa;    /* Fondo general */
+  --color-white: #ffffff;         /* Fondo tarjetas */
+  --color-border: #e6e6e6;        /* Bordes sutiles */
+  
+  /* Fonts */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-main);
+    font-family: var(--font-family);
+}
+```
+
+### B. Header Estándar
+Tu aplicación debe tener un Header blanco, con sombra sutil (`box-shadow: 0 1px 2px rgba(0,0,0,0.03)`).
+**IMPORTANTE**: Debes incluir la "Píldora de Advertencia" (Premium Pill) en el centro del header.
+
+**CSS de la Píldora de Advertencia:**
+```css
+/* Warning Pill Badge */
+.status-disclaimer {
+    display: flex; align-items: center; gap: 0.75rem;
+    background: linear-gradient(to right, #fffbeb, #fefce8);
+    border: 1px solid #fde68a;
+    padding: 0.4rem 1rem;
+    border-radius: 99px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    max-width: fit-content;
+}
+.disclaimer-icon { color: #eab308; } /* Usa lucide-react <AlertTriangle /> */
+.disclaimer-title { font-weight: 700; color: #b45309; font-size: 0.7rem; text-transform: uppercase; }
+.disclaimer-body { font-size: 0.75rem; color: #92400e; font-weight: 500; }
+```
+
+### C. Contenedores
+Usa tarjetas blancas con bordes redondeados para el contenido principal:
+```css
+.card {
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+}
+```
+
+Si el usuario te ha pasado capturas de referencia, **IMÍTALAS** pixel-perfect.
