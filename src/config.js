@@ -38,7 +38,7 @@ export const APPS_CONFIG = [
   },
   {
     id: '1215-risk-analysis',
-    name: 'Adecuación 1215 | Equipo trabajo fijo',
+    name: 'Adecuación 1215\nEquipo trabajo fijo',
     url: 'https://1215-risk-analysis.vercel.app',
     image: risk1215Img,
     active: true,
