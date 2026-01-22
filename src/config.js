@@ -3,6 +3,7 @@ import manualImg from './assets/manual-instructions-v2.png';
 import chemicalImg from './assets/chemical-analysis.png';
 
 import fdsImg from './assets/fds-analysis-bg.png';
+import risk1215Img from './assets/dashboard_card_1215_risk_analysis_1769107651157.png';
 
 export const PORTAL_URL = 'https://direccion-tecnica-ia-lab.vercel.app/';
 
@@ -33,6 +34,13 @@ export const APPS_CONFIG = [
     name: 'Análisis ficha de datos de seguridad de producto químico',
     url: 'https://direccion-tecnica-fds-analyzer.vercel.app/',
     image: fdsImg,
+    active: true,
+  },
+  {
+    id: '1215-risk-analysis',
+    name: '1215 Risk Analysis',
+    url: 'https://1215-risk-analysis.vercel.app',
+    image: risk1215Img,
     active: true,
   }
 ];
