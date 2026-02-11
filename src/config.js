@@ -4,6 +4,7 @@ import chemicalImg from './assets/chemical-analysis.png';
 
 import fdsImg from './assets/fds-analysis-bg.png';
 import risk1215Img from './assets/dashboard_card_1215_risk_analysis_1769107651157.png';
+import inrsImg from './assets/dashboard-card-metodo-inrs.png';
 
 export const PORTAL_URL = 'https://direccion-tecnica-ia-lab.vercel.app/';
 
@@ -41,6 +42,13 @@ export const APPS_CONFIG = [
     name: 'Adecuación 1215\nEquipo trabajo fijo',
     url: 'https://1215-risk-analysis.vercel.app',
     image: risk1215Img,
+    active: true,
+  },
+  {
+    id: 'metodo-inrs',
+    name: 'Método INRS\nEvaluación de Riesgo Químico',
+    url: 'https://metodo-inrs.vercel.app',
+    image: inrsImg,
     active: true,
   }
 ];
