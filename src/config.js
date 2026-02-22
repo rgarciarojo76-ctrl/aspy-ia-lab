@@ -5,6 +5,7 @@ import chemicalImg from './assets/chemical-analysis.png';
 import fdsImg from './assets/fds-analysis-bg.png';
 import risk1215Img from './assets/dashboard_card_1215_risk_analysis_1769107651157.png';
 import inrsImg from './assets/dashboard-card-metodo-inrs.png';
+import gestionLabImg from './assets/dashboard-gestion-laboratorio-higiene.png';
 
 export const PORTAL_URL = 'https://direccion-tecnica-ia-lab.vercel.app/';
 
@@ -49,6 +50,13 @@ export const APPS_CONFIG = [
     name: 'Método INRS\nEvaluación de Riesgo Químico',
     url: 'https://metodo-inrs.vercel.app',
     image: inrsImg,
+    active: true,
+  },
+  {
+    id: 'gestion-laboratorio-higiene',
+    name: 'Gestión Laboratorio de Higiene Industrial',
+    url: 'https://gestion-laboratorio-higiene.vercel.app/',
+    image: gestionLabImg,
     active: true,
   }
 ];
