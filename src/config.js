@@ -62,7 +62,7 @@ export const APPS_CONFIG = [
   },
   {
     id: 'optimizacion-rutas-leon',
-    name: 'Optimizador de Rutas (León)',
+    name: 'Optimizador de Rutas',
     url: 'https://0ptimizacion-rutas-rgarciarojo76-ctrls-projects.vercel.app/',
     image: rutasImg,
     active: true,
