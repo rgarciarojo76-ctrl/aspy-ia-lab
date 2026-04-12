@@ -6,6 +6,7 @@ import fdsImg from './assets/fds-analysis-bg.png';
 import risk1215Img from './assets/dashboard_card_1215_risk_analysis_1769107651157.png';
 import inrsImg from './assets/dashboard-card-metodo-inrs.png';
 import gestionLabImg from './assets/dashboard-gestion-laboratorio-higiene.png';
+import rutasImg from './assets/dashboard_card_optimizacion_rutas.jpg';
 
 export const PORTAL_URL = 'https://direccion-tecnica-ia-lab.vercel.app/';
 
@@ -57,6 +58,13 @@ export const APPS_CONFIG = [
     name: 'Gestión Laboratorio de Higiene Industrial',
     url: 'https://gestion-laboratorio-higiene.vercel.app/',
     image: gestionLabImg,
+    active: true,
+  },
+  {
+    id: 'optimizacion-rutas-leon',
+    name: 'Optimizador de Rutas (León)',
+    url: 'https://0ptimizacion-rutas-rgarciarojo76-ctrls-projects.vercel.app/',
+    image: rutasImg,
     active: true,
   }
 ];
